@@ -3,15 +3,13 @@ client.runtime.sendMessage({ monitor: true });
 //listen to messages from background
 client.runtime.onMessage.addListener(function (message) {
   if (message.state) {
-    console.log(message.state.active);
-    document.dispatchEvent(new CustomEvent(
-      'seleniumAjax',
-      {
-        detail: {
-          active: message.state.active
-        }
+    // console.log(message.state.active);
+    window.postMessage({
+      type: 'seleniumAjax',
+      params: {
+        active: message.state.active
       }
-    ));
+    })
   }
 });
 

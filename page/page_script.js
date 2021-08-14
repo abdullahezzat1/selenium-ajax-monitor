@@ -1,8 +1,10 @@
-seleniumAjax = {
+let seleniumAjax = {
   active: null
 }
 
-document.addEventListener('seleniumAjax', function (e) {
-  seleniumAjax.active += e.detail.active
-  console.log(seleniumAjax);
-});
+window.addEventListener('message', function (e) {
+  if (e.data.type === 'seleniumAjax') {
+    seleniumAjax.active += e.data.params.active
+    // console.log(seleniumAjax)
+  }
+})
