@@ -19,6 +19,9 @@
     "persistent": true,
     "page": "background/bg.html"
   },
+  "web_accessible_resources": [
+    "page/page_script.js"
+  ],
   "permissions": [
     "<all_urls>",
     "tabs",
